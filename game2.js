@@ -123,7 +123,6 @@ function Food(x, y) {
 
 
 function main() {
-    audio.play();
     setTimeout(function() {requestAnimationFrame(main)}, 1000 / fps);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     showScore();
@@ -142,7 +141,10 @@ function main() {
         fps = 15;
     }
 }
-
+// audio.setAttribute('muted', 'muted');
+// audio.setAttribute('autoplay', 'auto');
+audio.play();
+audio.setAttribute('loop', '');
 setCanvas(canvasWidth, canvasHeight);
 main();
 // setInterval(main, 1000/fps);
