@@ -9,7 +9,9 @@ let k, l, n, m, temp1, temp2;
 let score = 0;
 let fps = 15;
 const audio = new Audio('HarryPotterPrologue.mp3');
+audio.setAttribute('loop', '');
 
+document.addEventListener('keydown', playAudio);
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowRight' && snake.xSpeed !== -1) {
@@ -23,11 +25,17 @@ document.addEventListener('keydown', function(event) {
     }
 })
 
+
+
 function setCanvas(width, height) {
     canvas.width = width;
     canvas.height = height;
     canvas.setAttribute('style', 'background-color: black;')
     ctx = canvas.getContext('2d');
+}
+
+function playAudio() {
+    audio.play();
 }
 
 function showScore() {
@@ -141,10 +149,6 @@ function main() {
         fps = 15;
     }
 }
-// audio.setAttribute('muted', 'muted');
-// audio.setAttribute('autoplay', 'auto');
-audio.play();
-audio.setAttribute('loop', '');
+
 setCanvas(canvasWidth, canvasHeight);
 main();
-// setInterval(main, 1000/fps);
